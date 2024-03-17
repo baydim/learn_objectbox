@@ -1,6 +1,6 @@
 # learn_objectbox
 
-A new Flutter project.
+LEARN CRUD TODO APP NOSQL USE OBJECTBOX FLUTTER SO FAST AND SO EZZZZY
 
 ## Getting Started
 
