@@ -1,16 +1,23 @@
-import 'package:learn_objectbox/objectbox.g.dart';
-import 'package:objectbox/objectbox.dart';
+import 'package:path/path.dart' as p;
+import 'package:path_provider/path_provider.dart';
+import '../../../objectbox.g.dart';
 
-class LocalDB {
-  late final Store _store;
+class ObjectBox {
+  /// The Store of this app.
+  late final Store store;
 
-  LocalDB._init(this._store);
+  ObjectBox._create(this.store) {
+    // Add any additional setup code, e.g. build queries.
+  }
 
-  static Future<LocalDB> init() async {
-    final store = await openStore();
-
-    return LocalDB._init(store);
+  /// Create an instance of ObjectBox to use throughout the app.
+  static Future<ObjectBox> create() async {
+    final docsDir = await getApplicationDocumentsDirectory();
+    // Future<Store> openStore() {...} is defined in the generated objectbox.g.dart
+    final store =
+        await openStore(directory: p.join(docsDir.path, "obx-example"));
+    return ObjectBox._create(store);
   }
 }
 
-late LocalDB db;
+late ObjectBox db;

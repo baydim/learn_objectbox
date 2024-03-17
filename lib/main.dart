@@ -7,7 +7,7 @@ import 'app/routes/app_pages.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  db = await LocalDB.init();
+  db = await ObjectBox.create();
   runApp(
     const MyApp(),
   );
