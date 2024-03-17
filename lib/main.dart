@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:learn_objectbox/app/data/local_db/local_db.dart';
 
 import 'app/routes/app_pages.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  db = await LocalDB.init();
   runApp(
-    MyApp(),
+    const MyApp(),
   );
 }
 
