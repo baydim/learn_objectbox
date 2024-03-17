@@ -3,11 +3,18 @@ import 'package:get/get.dart';
 import 'package:learn_objectbox/app/data/local_db/table/table_todo.dart';
 import 'package:learn_objectbox/app/data/repository/local/repository_todo.dart';
 
+import '../../../data/local_db/local_db.dart';
+
 class HomeController extends GetxController {
   var data = <TableTodo>[].obs;
 
   funcGetAll() async {
-    data.value = await RepositoryTodo.getAll();
+    // data.value = await RepositoryTodo.getAll();
+
+    (db.store.box<TableTodo>().query().watch().map((event) => event.find()))
+        .forEach((element) {
+      data.value = element;
+    });
   }
 
   funcGetId({required int id}) async {
@@ -23,8 +30,13 @@ class HomeController extends GetxController {
     await RepositoryTodo.deleteId(id: id);
   }
 
+  funcInsert({required TableTodo data}) async {
+    await RepositoryTodo.insert(data: data);
+  }
+
   @override
   void onInit() {
+    funcGetAll();
     super.onInit();
   }
 }

@@ -28,4 +28,13 @@ class RepositoryTodo {
       return false;
     }
   }
+
+  static Future<int?> insert({required TableTodo data}) async {
+    try {
+      var responnse = await db.store.box<TableTodo>().putAsync(data);
+      return responnse;
+    } catch (e) {
+      return null;
+    }
+  }
 }
