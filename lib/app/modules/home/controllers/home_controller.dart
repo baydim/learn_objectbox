@@ -19,11 +19,15 @@ class HomeController extends GetxController {
 
   funcGetId({required int id}) async {
     var data = await RepositoryTodo.getId(id: id);
-    Get.dialog(Dialog(
-      child: Center(
-        child: Text(data?.title ?? "KOSONG"),
+    Get.dialog(
+      SimpleDialog(
+        children: [
+          Center(
+            child: Text(data?.title ?? "KOSONG"),
+          ),
+        ],
       ),
-    ));
+    );
   }
 
   funcDelete({required int id}) async {

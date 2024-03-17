@@ -1,3 +1,5 @@
+// ignore_for_file: invalid_use_of_protected_member
+
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -14,13 +16,16 @@ class HomeView extends GetView<HomeController> {
     return Obx(() {
       return Scaffold(
         appBar: AppBar(
-          title: const Text('HomeView'),
+          title: const Text('Random TODO'),
           centerTitle: true,
         ),
         body: ListView(
           children: [
             for (var i in controller.data.value)
               ListTile(
+                onLongPress: () {
+                  controller.funcGetId(id: i.id ?? 0);
+                },
                 title: Text(i.title),
                 trailing: IconButton(
                   onPressed: () {
@@ -38,7 +43,7 @@ class HomeView extends GetView<HomeController> {
             controller.funcInsert(
                 data: TableTodo(title: Random().nextDouble().toString()));
           },
-          child: Icon(Icons.add_rounded),
+          child: const Icon(Icons.add_rounded),
         ),
       );
     });
