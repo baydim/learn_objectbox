@@ -39,7 +39,8 @@ class HomeController extends GetxController {
   }
 
   @override
-  void onInit() {
+  void onInit() async {
+    data.value = await RepositoryTodo.getAll();
     funcGetAll();
     super.onInit();
   }
