@@ -21,10 +21,61 @@
         }
       ],
       "relations": []
+    },
+    {
+      "id": "2:9143872978155690509",
+      "lastPropertyId": "4:6079431109524543810",
+      "name": "TableBarang",
+      "properties": [
+        {
+          "id": "1:3512459619138653787",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5529495150158222460",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:1369987238490151471",
+          "name": "stock",
+          "type": 8
+        },
+        {
+          "id": "4:6079431109524543810",
+          "name": "categoryId",
+          "type": 11,
+          "flags": 520,
+          "indexId": "1:7146678826005016834",
+          "relationTarget": "TableCategory"
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "3:8012282888081993201",
+      "lastPropertyId": "2:5760870950674303323",
+      "name": "TableCategory",
+      "properties": [
+        {
+          "id": "1:156227478237577258",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:5760870950674303323",
+          "name": "nameCategory",
+          "type": 9
+        }
+      ],
+      "relations": []
     }
   ],
-  "lastEntityId": "1:4294970538843188417",
-  "lastIndexId": "0:0",
+  "lastEntityId": "3:8012282888081993201",
+  "lastIndexId": "1:7146678826005016834",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
   "modelVersion": 5,
